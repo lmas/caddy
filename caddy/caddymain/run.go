@@ -40,6 +40,8 @@ import (
 
 	_ "github.com/mholt/caddy/caddyhttp" // plug in the HTTP server type
 	// This is where other plugins get plugged in (imported)
+	_ "github.com/nicolasazrak/caddy-cache"
+	_ "github.com/xuqingfeng/caddy-rate-limit"
 )
 
 func init() {
