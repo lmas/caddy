@@ -23,7 +23,8 @@ USER 2003:2003
 ENV HOME /data
 WORKDIR $HOME
 VOLUME $HOME
+VOLUME /conf
 EXPOSE 8080 8081
 
-CMD ["/app", "-agree", "-log=stdout", "-conf=/data/Caddyfile", "-ca=https://acme-staging-v02.api.letsencrypt.org/directory", "-http-port=8080", "-https-port=8081", "-quiet"]
+CMD ["/app", "-agree", "-log=stdout", "-conf=/conf/Caddyfile", "-ca=https://acme-staging-v02.api.letsencrypt.org/directory", "-http-port=8080", "-https-port=8081", "-quiet"]
 
