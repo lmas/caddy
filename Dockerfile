@@ -17,9 +17,8 @@ RUN go mod download && \
 #FROM alpine:3.9 AS final
 FROM scratch AS final
 
-COPY --from=builder --chown=2003:2003 /build /
+COPY --from=builder /build /
 
-USER 2003:2003
 ENV HOME /data
 WORKDIR $HOME
 VOLUME $HOME
