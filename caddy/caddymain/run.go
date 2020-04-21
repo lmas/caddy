@@ -42,6 +42,7 @@ import (
 	// This is where other plugins get plugged in (imported)
 	_ "github.com/nicolasazrak/caddy-cache"
 	_ "github.com/xuqingfeng/caddy-rate-limit"
+	_ "github.com/miekg/caddy-prometheus"
 )
 
 func init() {

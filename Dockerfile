@@ -10,7 +10,7 @@ WORKDIR /src
 COPY . .
 RUN go mod download && \
         cd caddy/ && \
-        CGO_ENABLED=0 go build -o /build/app
+        CGO_ENABLED=0 go build -o /build/caddy
 
 ################################################################################
 
@@ -25,5 +25,6 @@ VOLUME $HOME
 VOLUME /conf
 EXPOSE 8080 8081
 
-CMD ["/app", "-agree", "-log=stdout", "-conf=/conf/Caddyfile", "-ca=https://acme-staging-v02.api.letsencrypt.org/directory", "-http-port=8080", "-https-port=8081", "-quiet"]
+#CMD ["/app", "-agree", "-log=stdout", "-conf=/conf/Caddyfile", "-ca=https://acme-staging-v02.api.letsencrypt.org/directory", "-http-port=8080", "-https-port=8081", "-quiet"]
+CMD ["/caddy", "-agree", "-log=stdout", "-conf=/conf/Caddyfile", "-http-port=8080", "-https-port=8081", "-quiet"]
 
